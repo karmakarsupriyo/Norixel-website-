@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Freshers' Welcome 2026 | B.Sc. Computer Science — Sammilani Mahavidyalaya</title>
+<meta name="description" content="Freshers' Welcome 2026 — Department of B.Sc. Computer Science, Sammilani Mahavidyalaya. 25 July 2026.">
+
+<!-- ============================================================
+     GOOGLE FONTS
+     Display face  : Space Grotesk (geometric, technical, collegiate)
+     Body face     : Inter (clean, highly readable)
+     Mono face     : JetBrains Mono (terminal / code accent — ties to CS dept)
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =====================================================================
+   ROOT TOKENS — Palette: Deep Black / Electric Blue / Crimson Red
+   ===================================================================== */
+:root{
+  --black-void:#04060c;
+  --black-deep:#070a14;
+  --black-card:#0c1120;
+  --blue-core:#1e5fff;
+  --blue-glow:#4d8bff;
+  --blue-dim:#0b3d91;
+  --red-core:#e01b3f;
+  --red-glow:#ff3f63;
+  --ice:#f3f6fb;
+  --ice-dim:#aab4c8;
+  --line:rgba(255,255,255,0.09);
+  --glass:rgba(16,22,40,0.55);
+  --glass-brd:rgba(120,150,255,0.18);
+  --ff-display:'Space Grotesk',sans-serif;
+  --ff-body:'Inter',sans-serif;
+  --ff-mono:'JetBrains Mono',monospace;
+  --ease:cubic-bezier(.22,.9,.35,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--ff-body);
+  background:var(--black-void);
+  color:var(--ice);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  cursor:none;
+}
+@media (max-width:900px), (hover:none){
+  body{cursor:auto;}
+}
+::selection{background:var(--blue-core);color:#fff;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+img{max-width:100%;display:block;}
+h1,h2,h3,h4{font-family:var(--ff-display);letter-spacing:.01em;}
+
+/* thin scrollbar */
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-track{background:var(--black-void);}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--blue-core),var(--red-core));border-radius:10px;}
+
+/* =====================================================================
+   ANIMATED GRADIENT BACKGROUND (fixed, behind everything)
+   ===================================================================== */
+.bg-gradient{
+  position:fixed;inset:0;z-index:-3;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 15%, rgba(30,95,255,0.20), transparent 60%),
+    radial-gradient(ellipse 70% 55% at 85% 25%, rgba(224,27,63,0.16), transparent 60%),
+    radial-gradient(ellipse 90% 70% at 50% 90%, rgba(30,95,255,0.14), transparent 60%),
+    linear-gradient(160deg, #04060c 0%, #070a14 45%, #0a0715 75%, #04060c 100%);
+  background-size:200% 200%,200% 200%,200% 200%,100% 100%;
+  animation:gradientShift 22s ease-in-out infinite;
+}
+@keyframes gradientShift{
+  0%{background-position:0% 0%,100% 0%,50% 100%,0 0;}
+  50%{background-position:100% 100%,0% 100%,50% 0%,0 0;}
+  100%{background-position:0% 0%,100% 0%,50% 100%,0 0;}
+}
+
+/* Starfield canvas */
+#starfield{position:fixed;inset:0;z-index:-2;}
+/* Particles canvas (glowing dots) */
+#particles{position:fixed;inset:0;z-index:-2;}
+/* Floating code symbols */
+.code-float{
+  position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;
+}
+.code-sym{
+  position:absolute;
+  font-family:var(--ff-mono);
+  color:rgba(77,139,255,0.16);
+  font-weight:600;
+  user-select:none;
+  animation:floatUp linear infinite;
+}
+.code-sym.red{color:rgba(255,63,99,0.14);}
+@keyframes floatUp{
+  0%{transform:translateY(110vh) rotate(0deg);opacity:0;}
+  8%{opacity:1;}
+  92%{opacity:1;}
+  100%{transform:translateY(-15vh) rotate(25deg);opacity:0;}
+}
+
+/* Cursor glow (custom cursor) */
+.cursor-glow{
+  position:fixed;top:0;left:0;width:26px;height:26px;border-radius:50%;
+  border:1.5px solid rgba(77,139,255,0.9);
+  pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:width .25s var(--ease),height .25s var(--ease),background .25s var(--ease),border-color .25s var(--ease);
+  mix-blend-mode:screen;
+}
+.cursor-dot{
+  position:fixed;top:0;left:0;width:5px;height:5px;border-radius:50%;
+  background:var(--blue-glow);pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);box-shadow:0 0 12px 3px var(--blue-glow);
+}
+.cursor-glow.active{
+  width:52px;height:52px;
+  background:radial-gradient(circle, rgba(224,27,63,0.25), transparent 70%);
+  border-color:var(--red-glow);
+}
+@media (max-width:900px), (hover:none){
+  .cursor-glow,.cursor-dot{display:none;}
+}
+
+/* =====================================================================
+   PAGE LOADER
+   ===================================================================== */
+#loader{
+  position:fixed;inset:0;z-index:10000;
+  background:var(--black-void);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;
+  transition:opacity .8s var(--ease), visibility .8s var(--ease);
+}
+#loader.hide{opacity:0;visibility:hidden;}
+.loader-logo{
+  font-family:var(--ff-mono);font-size:clamp(1rem,2.6vw,1.35rem);color:var(--ice-dim);
+  letter-spacing:.04em;
+}
+.loader-logo .prompt{color:var(--blue-glow);}
+.loader-logo .blink{animation:blink 1s step-end infinite;color:var(--red-glow);}
+@keyframes blink{50%{opacity:0;}}
+.loader-bar-track{width:min(320px,70vw);height:3px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden;}
+.loader-bar-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--blue-core),var(--red-core));box-shadow:0 0 12px var(--blue-glow);transition:width .3s ease-out;}
+.loader-pct{font-family:var(--ff-mono);font-size:.8rem;color:var(--ice-dim);}
+
+/* =====================================================================
+   TOP UI — scroll progress, back-to-top, music toggle
+   ===================================================================== */
+#scroll-progress{
+  position:fixed;top:0;left:0;height:3px;width:0%;
+  background:linear-gradient(90deg,var(--blue-core),var(--red-core));
+  z-index:9998;box-shadow:0 0 10px var(--blue-glow);
+  transition:width .1s linear;
+}
+
+.float-ui{position:fixed;right:22px;bottom:22px;z-index:900;display:flex;flex-direction:column;gap:12px;align-items:flex-end;}
+.fui-btn{
+  width:52px;height:52px;border-radius:50%;
+  background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid var(--glass-brd);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ice);font-size:1.1rem;
+  transition:transform .3s var(--ease), border-color .3s, box-shadow .3s;
+  opacity:0;transform:translateY(20px) scale(.8);pointer-events:none;
+}
+.fui-btn.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+.fui-btn:hover{transform:translateY(-4px) scale(1.06);border-color:var(--blue-glow);box-shadow:0 6px 26px rgba(30,95,255,.35);}
+#music-toggle.on{border-color:var(--red-glow);box-shadow:0 0 18px rgba(255,63,99,.4);color:var(--red-glow);}
+#music-toggle{opacity:1;transform:none;pointer-events:auto;}
+
+/* =====================================================================
+   SECTION SCAFFOLDING
+   ===================================================================== */
+section{
+  position:relative;min-height:100svh;width:100%;
+  display:flex;align-items:center;justify-content:center;
+  padding:100px 6vw;
+}
+.section-inner{width:100%;max-width:1180px;margin:0 auto;position:relative;z-index:2;}
+
+.eyebrow{
+  font-family:var(--ff-mono);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--blue-glow);display:flex;align-items:center;gap:10px;margin-bottom:18px;
+  opacity:0;transform:translateY(14px);transition:all .7s var(--ease);
+}
+.eyebrow::before{content:'';width:26px;height:1px;background:var(--blue-glow);display:inline-block;}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .9s var(--ease), transform .9s var(--ease);}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal.d1{transition-delay:.08s;} .reveal.d2{transition-delay:.16s;} .reveal.d3{transition-delay:.24s;}
+.reveal.d4{transition-delay:.32s;} .reveal.d5{transition-delay:.4s;}
+
+/* Section divider — glowing rule */
+.divider{
+  position:relative;height:1px;width:100%;
+  background:linear-gradient(90deg, transparent, rgba(77,139,255,0.5), rgba(255,63,99,0.5), transparent);
+  margin:0 auto;
+}
+.divider::after{
+  content:'◆';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  font-size:.7rem;color:var(--ice);background:var(--black-void);padding:0 14px;
+}
+
+/* Glass card base */
+.glass{
+  background:var(--glass);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border:1px solid var(--glass-brd);
+  border-radius:20px;
+  box-shadow:0 8px 40px rgba(0,0,0,.45);
+}
+
+/* =====================================================================
+   NAV DOTS (section indicator)
+   ===================================================================== */
+.nav-dots{
+  position:fixed;left:26px;top:50%;transform:translateY(-50%);z-index:900;
+  display:flex;flex-direction:column;gap:16px;
+}
+.nav-dots a{
+  width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.22);
+  border:1px solid rgba(255,255,255,0.3);transition:all .35s var(--ease);position:relative;
+}
+.nav-dots a.active{background:var(--blue-core);box-shadow:0 0 10px var(--blue-glow);width:11px;height:11px;border-color:var(--blue-glow);}
+.nav-dots a span{
+  position:absolute;left:20px;top:50%;transform:translateY(-50%);
+  font-family:var(--ff-mono);font-size:.68rem;color:var(--ice-dim);white-space:nowrap;
+  opacity:0;transition:opacity .3s;
+}
+.nav-dots a:hover span{opacity:1;}
+@media (max-width:900px){.nav-dots{display:none;}}
+
+/* =====================================================================
+   SECTION 1 — INVITATION
+   ===================================================================== */
+#page1{text-align:center;flex-direction:column;}
+.hero-card{padding:clamp(36px,6vw,72px) clamp(24px,6vw,64px);}
+.hero-college{
+  font-family:var(--ff-mono);font-size:clamp(.72rem,1.6vw,.85rem);
+  color:var(--ice-dim);letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px;
+}
+.hero-title{
+  font-size:clamp(2.2rem,7vw,4.6rem);font-weight:700;line-height:1.04;
+  background:linear-gradient(100deg,#fff 20%, var(--blue-glow) 55%, var(--red-glow) 90%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  margin-bottom:18px;
+}
+.hero-dept{
+  font-size:clamp(1.05rem,2.6vw,1.5rem);color:var(--ice);font-weight:500;margin-bottom:6px;
+}
+.hero-college-name{
+  font-family:var(--ff-display);font-size:clamp(1.3rem,3.4vw,1.9rem);font-weight:600;
+  color:var(--ice);margin-bottom:28px;
+}
+.hero-date-chip{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--ff-mono);font-size:.9rem;letter-spacing:.06em;
+  padding:10px 22px;border-radius:999px;
+  border:1px solid var(--glass-brd);background:rgba(255,255,255,0.03);
+  margin-bottom:34px;color:var(--ice-dim);
+}
+.hero-date-chip b{color:var(--blue-glow);font-weight:600;}
+
+.typing-wrap{
+  font-family:var(--ff-mono);font-size:clamp(1rem,2.6vw,1.3rem);
+  color:var(--red-glow);min-height:1.6em;margin-bottom:38px;font-weight:500;
+}
+.typing-wrap .cursor-char{display:inline-block;width:2px;background:var(--red-glow);margin-left:2px;animation:blink .8s step-end infinite;}
+
+.btn{
+  position:relative;display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--ff-display);font-weight:600;font-size:1rem;
+  padding:16px 38px;border-radius:999px;color:#fff;
+  background:linear-gradient(100deg,var(--blue-core),var(--red-core));
+  overflow:hidden;isolation:isolate;
+  box-shadow:0 6px 30px rgba(30,95,255,.35), 0 6px 30px rgba(224,27,63,.15);
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.btn::before{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(100deg,var(--red-core),var(--blue-core));
+  opacity:0;transition:opacity .4s var(--ease);
+}
+.btn:hover::before{opacity:1;}
+.btn:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 10px 40px rgba(30,95,255,.5), 0 10px 40px rgba(224,27,63,.25);}
+.btn:active{transform:translateY(-1px) scale(.99);}
+.btn .glow-pulse{
+  position:absolute;inset:-3px;border-radius:999px;z-index:-2;
+  background:linear-gradient(100deg,var(--blue-core),var(--red-core));
+  filter:blur(14px);opacity:.55;animation:pulseGlow 2.4s ease-in-out infinite;
+}
+@keyframes pulseGlow{0%,100%{opacity:.35;}50%{opacity:.75;}}
+
+.scroll-cue{
+  margin-top:56px;display:flex;flex-direction:column;align-items:center;gap:8px;
+  color:var(--ice-dim);font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  animation:bobY 2.2s ease-in-out infinite;
+}
+@keyframes bobY{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
+.scroll-cue .chev{width:14px;height:14px;border-right:2px solid var(--blue-glow);border-bottom:2px solid var(--blue-glow);transform:rotate(45deg);}
+
+/* =====================================================================
+   SECTION 2 — PERSONALIZED INVITATION
+   ===================================================================== */
+#page2{flex-direction:column;}
+.gen-wrap{width:100%;max-width:720px;margin:0 auto;text-align:center;}
+.gen-title{font-size:clamp(1.8rem,5vw,2.6rem);font-weight:700;margin-bottom:12px;}
+.gen-title .accent{color:var(--red-glow);}
+.gen-sub{color:var(--ice-dim);font-size:1rem;margin-bottom:40px;line-height:1.6;}
+
+.gen-form{
+  display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:14px;
+}
+.gen-input{
+  flex:1 1 280px;
+  font-family:var(--ff-body);font-size:1rem;color:var(--ice);
+  padding:16px 20px;border-radius:14px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--glass-brd);
+  transition:border-color .3s, box-shadow .3s;
+}
+.gen-input::placeholder{color:var(--ice-dim);}
+.gen-input:focus{outline:none;border-color:var(--blue-glow);box-shadow:0 0 0 4px rgba(30,95,255,.15);}
+.gen-hint{font-family:var(--ff-mono);font-size:.72rem;color:var(--ice-dim);opacity:.7;margin-bottom:36px;}
+
+#invite-output{
+  margin-top:8px;text-align:left;overflow:hidden;
+  max-height:0;opacity:0;transform:translateY(14px) scale(.98);
+  transition:max-height .7s var(--ease), opacity .6s var(--ease), transform .6s var(--ease), margin .6s var(--ease);
+}
+#invite-output.show{max-height:900px;opacity:1;transform:translateY(0) scale(1);margin-top:36px;}
+
+.invite-card{
+  padding:clamp(28px,5vw,52px);position:relative;border-radius:22px;
+  background:linear-gradient(160deg, rgba(30,95,255,0.08), rgba(224,27,63,0.05)), var(--glass);
+  border:1px solid var(--glass-brd);
+}
+.invite-card::before{
+  content:'';position:absolute;top:18px;left:18px;right:18px;bottom:18px;
+  border:1px solid rgba(255,255,255,0.08);border-radius:14px;pointer-events:none;
+}
+.invite-mono-tag{font-family:var(--ff-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-glow);margin-bottom:18px;}
+.invite-dear{font-family:var(--ff-display);font-size:clamp(1.3rem,3.4vw,1.7rem);font-weight:600;margin-bottom:20px;color:#fff;}
+.invite-body{color:var(--ice-dim);font-size:1rem;line-height:1.85;margin-bottom:14px;}
+.invite-body b{color:var(--ice);font-weight:600;}
+.invite-sign{margin-top:26px;font-family:var(--ff-mono);font-size:.85rem;color:var(--ice-dim);}
+.invite-sign b{color:var(--red-glow);}
+
+.gen-actions{display:flex;gap:14px;justify-content:center;margin-top:28px;flex-wrap:wrap;}
+.btn.secondary{
+  background:transparent;border:1px solid var(--glass-brd);color:var(--ice);
+  box-shadow:none;
+}
+.btn.secondary:hover{border-color:var(--red-glow);box-shadow:0 6px 24px rgba(224,27,63,.25);}
+.btn.secondary::before{background:linear-gradient(100deg, rgba(224,27,63,.18), rgba(30,95,255,.18));}
+
+/* =====================================================================
+   SECTION 3 — EVENT DETAILS
+   ===================================================================== */
+#page3{flex-direction:column;}
+.details-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px;}
+.card{padding:28px 26px;}
+.card-label{font-family:var(--ff-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-glow);margin-bottom:10px;}
+
+/* countdown card spans full width */
+.card.countdown{grid-column:span 12;text-align:center;padding:42px 26px;}
+.countdown-title{font-family:var(--ff-display);font-size:clamp(1.3rem,3vw,1.8rem);font-weight:600;margin-bottom:26px;}
+.countdown-grid{display:flex;justify-content:center;gap:clamp(10px,3vw,26px);flex-wrap:wrap;}
+.cd-unit{min-width:88px;}
+.cd-num{
+  font-family:var(--ff-mono);font-weight:700;font-size:clamp(1.8rem,5vw,2.6rem);
+  background:linear-gradient(160deg,#fff, var(--blue-glow));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  line-height:1;
+}
+.cd-label{font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ice-dim);margin-top:8px;}
+
+/* date card */
+.card.date-card{grid-column:span 6;}
+.date-big{font-family:var(--ff-display);font-size:clamp(1.6rem,4vw,2.2rem);font-weight:700;color:#fff;}
+.date-sub{color:var(--ice-dim);margin-top:6px;font-size:.92rem;}
+
+/* dress code */
+.card.dress-card{grid-column:span 6;}
+.dress-row{display:flex;justify-content:space-between;gap:16px;margin-top:14px;}
+.dress-item{flex:1;text-align:center;padding:16px 10px;border-radius:14px;background:rgba(255,255,255,0.03);border:1px solid var(--line);}
+.dress-item .who{font-family:var(--ff-mono);font-size:.7rem;color:var(--ice-dim);text-transform:uppercase;letter-spacing:.1em;}
+.dress-item .what{font-family:var(--ff-display);font-weight:600;font-size:1.15rem;margin-top:6px;color:var(--ice);}
+.dress-item.girls .what{color:var(--red-glow);}
+.dress-item.boys .what{color:var(--blue-glow);}
+
+/* schedule */
+.card.schedule-card{grid-column:span 12;}
+.schedule-title{font-family:var(--ff-display);font-size:1.3rem;font-weight:600;margin-bottom:22px;}
+.timeline{display:flex;flex-direction:column;}
+.t-item{
+  display:flex;align-items:flex-start;gap:16px;padding:14px 6px;
+  border-bottom:1px solid var(--line);font-family:var(--ff-mono);
+  transition:background .3s;
+}
+.t-item:last-child{border-bottom:none;}
+.t-item:hover{background:rgba(255,255,255,0.02);}
+.t-prompt{color:var(--blue-glow);font-weight:600;white-space:nowrap;}
+.t-text{color:var(--ice);font-family:var(--ff-body);font-weight:500;}
+
+/* quote */
+.card.quote-card{grid-column:span 12;text-align:center;padding:44px 26px;}
+.quote-mark{font-family:var(--ff-mono);color:var(--red-glow);font-size:1.6rem;}
+.quote-text{
+  font-family:var(--ff-display);font-size:clamp(1.15rem,3vw,1.6rem);font-weight:500;
+  line-height:1.5;max-width:760px;margin:14px auto 0;color:#fff;
+}
+
+@media (max-width:820px){
+  .card.date-card,.card.dress-card{grid-column:span 12;}
+}
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+footer{
+  position:relative;padding:70px 6vw 40px;text-align:center;
+  border-top:1px solid var(--line);
+}
+.footer-brand{font-family:var(--ff-display);font-weight:700;font-size:1.4rem;margin-bottom:8px;}
+.footer-brand .dot{color:var(--red-glow);}
+.footer-line{color:var(--ice-dim);font-size:.9rem;margin-bottom:26px;}
+.footer-meta{
+  display:flex;justify-content:center;gap:26px;flex-wrap:wrap;
+  font-family:var(--ff-mono);font-size:.76rem;color:var(--ice-dim);margin-bottom:26px;
+}
+.footer-meta span b{color:var(--blue-glow);}
+.footer-copy{font-family:var(--ff-mono);font-size:.7rem;color:rgba(255,255,255,0.3);}
+
+/* Reduced motion respect */
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}
+}
+
+/* Keyboard focus visibility */
+a:focus-visible,button:focus-visible,input:focus-visible{
+  outline:2px solid var(--blue-glow);outline-offset:3px;border-radius:6px;
+}
+</style>
+</head>
+<body>
+
+<!-- ================= LOADER ================= -->
+<div id="loader">
+  <div class="loader-logo"><span class="prompt">sammilani@cs</span>:~$ initializing_freshers_2026<span class="blink">_</span></div>
+  <div class="loader-bar-track"><div class="loader-bar-fill" id="loaderFill"></div></div>
+  <div class="loader-pct" id="loaderPct">0%</div>
+</div>
+
+<!-- ================= AMBIENT BACKGROUND LAYERS ================= -->
+<div class="bg-gradient"></div>
+<canvas id="starfield"></canvas>
+<canvas id="particles"></canvas>
+<div class="code-float" id="codeFloat"></div>
+
+<!-- ================= CURSOR ================= -->
+<div class="cursor-glow" id="cursorGlow"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- ================= SCROLL PROGRESS ================= -->
+<div id="scroll-progress"></div>
+
+<!-- ================= SECTION NAV DOTS ================= -->
+<nav class="nav-dots" id="navDots">
+  <a href="#page1" class="active" data-target="page1"><span>Invitation</span></a>
+  <a href="#page2" data-target="page2"><span>Your Invite</span></a>
+  <a href="#page3" data-target="page3"><span>Event Details</span></a>
+</nav>
+
+<!-- ================= FLOATING UI (music / back to top) ================= -->
+<div class="float-ui">
+  <button class="fui-btn" id="music-toggle" title="Toggle ambient music" aria-label="Toggle ambient music">🔇</button>
+  <button class="fui-btn" id="top-btn" title="Back to top" aria-label="Back to top">↑</button>
+</div>
+
+<!-- =====================================================================
+     PAGE 1 — INVITATION
+     ===================================================================== -->
+<section id="page1">
+  <div class="section-inner">
+    <div class="glass hero-card reveal in">
+      <div class="hero-college">Sammilani Mahavidyalaya presents</div>
+      <h1 class="hero-title">WELCOME<br>FRESHERS 2026</h1>
+      <div class="hero-dept">Department of B.Sc. Computer Science</div>
+      <div class="hero-college-name">Sammilani Mahavidyalaya</div>
+
+      <div class="hero-date-chip">
+        <span>📅</span> Freshers' Welcome Ceremony &nbsp;·&nbsp; <b>25 July 2026</b>
+      </div>
+
+      <div class="typing-wrap"><span id="typedText"></span><span class="cursor-char">&nbsp;</span></div>
+
+      <a href="#page2" class="btn" id="openInviteBtn">
+        <span class="glow-pulse"></span>
+        Open Invitation →
+      </a>
+
+      <div class="scroll-cue"><span>Scroll to explore</span><span class="chev"></span></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-inner"><div class="divider"></div></div>
+
+<!-- =====================================================================
+     PAGE 2 — PERSONALIZED INVITATION GENERATOR
+     ===================================================================== -->
+<section id="page2">
+  <div class="section-inner gen-wrap">
+    <div class="eyebrow reveal">Personalized For You</div>
+    <h2 class="gen-title reveal d1">Generate Your <span class="accent">Own Invitation</span></h2>
+    <p class="gen-sub reveal d2">Enter your full name below and receive a personalized invitation to the Freshers' Welcome Ceremony — yours to keep, print, or share.</p>
+
+    <div class="gen-form reveal d3">
+      <input type="text" id="nameInput" class="gen-input" placeholder="Enter Your Full Name" maxlength="60" autocomplete="off">
+      <button class="btn" id="generateBtn"><span class="glow-pulse"></span>Generate My Invitation</button>
+    </div>
+    <div class="gen-hint reveal d3">// press enter or tap generate — no data leaves your browser</div>
+
+    <div id="invite-output">
+      <div class="invite-card" id="inviteCard">
+        <div class="invite-mono-tag">&lt;/&gt; official invitation — cs.sammilani.2026</div>
+        <div class="invite-dear">Dear <span id="outName">Rahul Das</span>,</div>
+        <p class="invite-body">It gives us <b>immense pleasure</b> to welcome you to the Department of B.Sc. Computer Science, Sammilani Mahavidyalaya.</p>
+        <p class="invite-body">You are cordially invited to the <b>Freshers' Welcome Ceremony</b> on <b>25 July 2026</b>.</p>
+        <p class="invite-body">May this new journey be filled with knowledge, friendship, creativity and success.</p>
+        <p class="invite-body">See you soon!</p>
+        <div class="invite-sign">— Department of B.Sc. Computer Science<br><b>Sammilani Mahavidyalaya</b></div>
+      </div>
+      <div class="gen-actions">
+        <button class="btn secondary" id="downloadBtn">⬇ Download Invitation</button>
+        <a href="#page3" class="btn secondary">View Event Details →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-inner"><div class="divider"></div></div>
+
+<!-- =====================================================================
+     PAGE 3 — EVENT DETAILS
+     ===================================================================== -->
+<section id="page3">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Everything You Need To Know</div>
+    <h2 class="reveal d1" style="font-size:clamp(1.8rem,5vw,2.6rem);font-weight:700;margin-bottom:36px;">Event Details</h2>
+
+    <div class="details-grid">
+
+      <!-- Countdown -->
+      <div class="card countdown glass reveal d1">
+        <div class="countdown-title">⏳ Counting Down To The Big Day</div>
+        <div class="countdown-grid">
+          <div class="cd-unit"><div class="cd-num" id="cdDays">00</div><div class="cd-label">Days</div></div>
+          <div class="cd-unit"><div class="cd-num" id="cdHours">00</div><div class="cd-label">Hours</div></div>
+          <div class="cd-unit"><div class="cd-num" id="cdMins">00</div><div class="cd-label">Minutes</div></div>
+          <div class="cd-unit"><div class="cd-num" id="cdSecs">00</div><div class="cd-label">Seconds</div></div>
+        </div>
+      </div>
+
+      <!-- Date -->
+      <div class="card date-card glass reveal d2">
+        <div class="card-label">Event Date</div>
+        <div class="date-big">25 July 2026</div>
+        <div class="date-sub">Saturday · Department Auditorium, Sammilani Mahavidyalaya</div>
+      </div>
+
+      <!-- Dress code -->
+      <div class="card dress-card glass reveal d2">
+        <div class="card-label">Dress Code</div>
+        <div class="dress-row">
+          <div class="dress-item girls"><div class="who">Girls</div><div class="what">Saree</div></div>
+          <div class="dress-item boys"><div class="who">Boys</div><div class="what">Punjabi</div></div>
+        </div>
+      </div>
+
+      <!-- Schedule -->
+      <div class="card schedule-card glass reveal d3">
+        <div class="schedule-title">📋 Schedule</div>
+        <div class="timeline">
+          <div class="t-item"><span class="t-prompt">&gt; 01</span><span class="t-text">Welcome Session</span></div>
+          <div class="t-item"><span class="t-prompt">&gt; 02</span><span class="t-text">Introduction</span></div>
+          <div class="t-item"><span class="t-prompt">&gt; 03</span><span class="t-text">Fun Activities</span></div>
+          <div class="t-item"><span class="t-prompt">&gt; 04</span><span class="t-text">Photography</span></div>
+          <div class="t-item"><span class="t-prompt">&gt; 05</span><span class="t-text">Refreshments</span></div>
+          <div class="t-item"><span class="t-prompt">&gt; 06</span><span class="t-text">Closing Ceremony</span></div>
+        </div>
+      </div>
+
+      <!-- Quote -->
+      <div class="card quote-card glass reveal d4">
+        <div class="quote-mark">/*</div>
+        <div class="quote-text">Every great programmer was once a fresher. Welcome to the beginning of your journey.</div>
+        <div class="quote-mark">*/</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="footer-brand">CS<span class="dot">.</span>2026</div>
+  <div class="footer-line">Department of B.Sc. Computer Science, Sammilani Mahavidyalaya</div>
+  <div class="footer-meta">
+    <span>📍 <b>Location:</b> Sammilani Mahavidyalaya</span>
+    <span>📅 <b>Date:</b> 25 July 2026</span>
+    <span>🎓 <b>Event:</b> Freshers' Welcome</span>
+  </div>
+  <div class="footer-copy">© 2026 Department of B.Sc. Computer Science · Sammilani Mahavidyalaya · All Rights Reserved</div>
+</footer>
+
+<script>
+/* =====================================================================
+   1. PAGE LOADER
+   ===================================================================== */
+(function(){
+  const fill = document.getElementById('loaderFill');
+  const pct = document.getElementById('loaderPct');
+  const loader = document.getElementById('loader');
+  let p = 0;
+  const iv = setInterval(()=>{
+    p += Math.random()*18 + 6;
+    if(p >= 100){ p = 100; clearInterval(iv); }
+    fill.style.width = p + '%';
+    pct.textContent = Math.floor(p) + '%';
+    if(p === 100){
+      setTimeout(()=>{ loader.classList.add('hide'); document.body.style.overflow='auto'; }, 350);
+    }
+  }, 140);
+  document.body.style.overflow='hidden';
+})();
+
+/* =====================================================================
+   2. CUSTOM CURSOR GLOW
+   ===================================================================== */
+(function(){
+  const glow = document.getElementById('cursorGlow');
+  const dot = document.getElementById('cursorDot');
+  if(!glow) return;
+  let mx=0,my=0, gx=0, gy=0;
+  window.addEventListener('mousemove', e=>{
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx+'px'; dot.style.top = my+'px';
+  });
+  function loop(){
+    gx += (mx-gx)*0.16; gy += (my-gy)*0.16;
+    glow.style.left = gx+'px'; glow.style.top = gy+'px';
+    requestAnimationFrame(loop);
+  }
+  loop();
+  document.querySelectorAll('a,button,input,.card').forEach(el=>{
+    el.addEventListener('mouseenter', ()=>glow.classList.add('active'));
+    el.addEventListener('mouseleave', ()=>glow.classList.remove('active'));
+  });
+})();
+
+/* =====================================================================
+   3. STARFIELD CANVAS
+   ===================================================================== */
+(function(){
+  const canvas = document.getElementById('starfield');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+  function resize(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight * document.body.scrollHeight / window.innerHeight;
+    canvas.height = document.body.scrollHeight;
+    canvas.width = window.innerWidth;
+  }
+  function initStars(){
+    stars = [];
+    const count = Math.floor((window.innerWidth * window.innerHeight) / 9000);
+    for(let i=0;i<count;i++){
+      stars.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        r: Math.random()*1.4 + 0.3,
+        a: Math.random(),
+        speed: Math.random()*0.015 + 0.003,
+        dir: Math.random() > 0.5 ? 1 : -1
+      });
+    }
+  }
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    stars.forEach(s=>{
+      s.a += s.speed * s.dir;
+      if(s.a <= 0.05 || s.a >= 1) s.dir *= -1;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(255,255,255,${Math.max(0,Math.min(1,s.a))})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize', ()=>{ resize(); initStars(); });
+  setTimeout(()=>{ resize(); initStars(); draw(); }, 300);
+})();
+
+/* =====================================================================
+   4. FLOATING GLOW PARTICLES (mouse-reactive)
+   ===================================================================== */
+(function(){
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let mouse = {x:-999,y:-999};
+  function resize(){ canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  window.addEventListener('resize', resize);
+  resize();
+  window.addEventListener('mousemove', e=>{ mouse.x = e.clientX; mouse.y = e.clientY; });
+
+  const colors = ['77,139,255','255,63,99','30,95,255'];
+  function init(){
+    particles = [];
+    const count = Math.min(70, Math.floor(window.innerWidth/22));
+    for(let i=0;i<count;i++){
+      particles.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        r: Math.random()*2.4 + 1,
+        vx: (Math.random()-0.5)*0.25,
+        vy: (Math.random()-0.5)*0.25,
+        c: colors[Math.floor(Math.random()*colors.length)],
+        a: Math.random()*0.5+0.2
+      });
+    }
+  }
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particles.forEach(p=>{
+      // gentle drift
+      p.x += p.vx; p.y += p.vy;
+      // mouse repel/attract glow
+      const dx = mouse.x - p.x, dy = mouse.y - p.y;
+      const dist = Math.sqrt(dx*dx+dy*dy);
+      if(dist < 140){
+        p.x -= dx*0.004; p.y -= dy*0.004;
+      }
+      if(p.x < 0) p.x = canvas.width; if(p.x > canvas.width) p.x = 0;
+      if(p.y < 0) p.y = canvas.height; if(p.y > canvas.height) p.y = 0;
+
+      const grad = ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*6);
+      grad.addColorStop(0, `rgba(${p.c},${p.a})`);
+      grad.addColorStop(1, `rgba(${p.c},0)`);
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r*6,0,Math.PI*2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle = `rgba(${p.c},${Math.min(1,p.a+0.3)})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  init(); draw();
+})();
+
+/* =====================================================================
+   5. FLOATING CODE SYMBOLS
+   ===================================================================== */
+(function(){
+  const wrap = document.getElementById('codeFloat');
+  const symbols = ['{ }','</>','#include','01','10','print()','int main()','=>','01101','if(fresher)','&&','::','++','class CS','[ ]'];
+  const total = window.innerWidth < 700 ? 10 : 18;
+  for(let i=0;i<total;i++){
+    const el = document.createElement('div');
+    el.className = 'code-sym' + (Math.random() > 0.55 ? ' red' : '');
+    el.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+    el.style.left = Math.random()*100 + 'vw';
+    el.style.fontSize = (Math.random()*14+12) + 'px';
+    const duration = Math.random()*14 + 14;
+    el.style.animationDuration = duration + 's';
+    el.style.animationDelay = (Math.random()*duration) + 's';
+    wrap.appendChild(el);
+  }
+})();
+
+/* =====================================================================
+   6. SCROLL PROGRESS + NAV DOTS + REVEAL ON SCROLL
+   ===================================================================== */
+(function(){
+  const bar = document.getElementById('scroll-progress');
+  const topBtn = document.getElementById('top-btn');
+  function onScroll(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    bar.style.width = scrolled + '%';
+    topBtn.classList.toggle('show', h.scrollTop > 400);
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+  topBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+
+  // Reveal animation on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
+  }, {threshold:0.15});
+  reveals.forEach(r=>io.observe(r));
+
+  // Nav dots active state
+  const dots = document.querySelectorAll('.nav-dots a');
+  const sections = ['page1','page2','page3'].map(id=>document.getElementById(id));
+  const secIO = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        dots.forEach(d=>d.classList.remove('active'));
+        const match = document.querySelector(`.nav-dots a[data-target="${e.target.id}"]`);
+        if(match) match.classList.add('active');
+      }
+    });
+  }, {threshold:0.5});
+  sections.forEach(s=> s && secIO.observe(s));
+})();
+
+/* =====================================================================
+   7. TYPEWRITER — "Code. Learn. Innovate."
+   ===================================================================== */
+(function(){
+  const el = document.getElementById('typedText');
+  const phrases = ['Code.', 'Code. Learn.', 'Code. Learn. Innovate.'];
+  let full = 'Code. Learn. Innovate.';
+  let i = 0, typing = true;
+  function tick(){
+    if(typing){
+      el.textContent = full.slice(0, i+1);
+      i++;
+      if(i >= full.length){ typing = false; setTimeout(tick, 1800); return; }
+    } else {
+      el.textContent = full.slice(0, i-1);
+      i--;
+      if(i <= 0){ typing = true; setTimeout(tick, 500); return; }
+    }
+    setTimeout(tick, typing ? 85 : 40);
+  }
+  tick();
+})();
+
+/* =====================================================================
+   8. PERSONALIZED INVITATION GENERATOR
+   ===================================================================== */
+(function(){
+  const input = document.getElementById('nameInput');
+  const btn = document.getElementById('generateBtn');
+  const output = document.getElementById('invite-output');
+  const outName = document.getElementById('outName');
+  const downloadBtn = document.getElementById('downloadBtn');
+
+  function generate(){
+    let name = input.value.trim();
+    if(!name){ 
+      input.style.borderColor = 'var(--red-glow)';
+      input.placeholder = 'Please enter your name first';
+      setTimeout(()=>{ input.style.borderColor=''; input.placeholder='Enter Your Full Name'; }, 1800);
+      return;
+    }
+    // Title-case the name nicely
+    name = name.replace(/\s+/g,' ').split(' ').map(w => w.charAt(0).toUpperCase()+w.slice(1)).join(' ');
+    outName.textContent = name;
+    output.classList.add('show');
+    setTimeout(()=> output.scrollIntoView({behavior:'smooth', block:'center'}), 150);
+  }
+  btn.addEventListener('click', generate);
+  input.addEventListener('keydown', e=>{ if(e.key === 'Enter') generate(); });
+
+  downloadBtn.addEventListener('click', ()=>{
+    const name = outName.textContent || 'Rahul Das';
+    const html = `<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<title>Invitation — ${name}</title>
+<style>
+  @page{ margin:0; }
+  body{
+    font-family:'Georgia',serif; background:#0c1120; color:#f3f6fb;
+    display:flex; align-items:center; justify-content:center; min-height:100vh; margin:0; padding:40px;
+  }
+  .card{
+    max-width:640px; width:100%; background:linear-gradient(160deg,#0f1730,#150b1c);
+    border:1px solid rgba(120,150,255,0.25); border-radius:18px; padding:56px 48px;
+    box-shadow:0 10px 50px rgba(0,0,0,0.5);
+  }
+  .tag{ font-family:monospace; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#4d8bff; margin-bottom:22px;}
+  h1{ font-size:26px; margin:0 0 20px; color:#fff; }
+  p{ line-height:1.9; color:#c7cfe0; margin:0 0 14px; font-size:16px; }
+  b{ color:#fff; }
+  .sign{ margin-top:26px; font-family:monospace; font-size:14px; color:#c7cfe0; }
+  .sign b{ color:#ff3f63; }
+  @media print{ body{ background:#fff; color:#111;} .card{ box-shadow:none; border:1px solid #ddd; background:#fff;} p{color:#333;} .tag{color:#1e5fff;} }
+</style></head>
+<body>
+  <div class="card">
+    <div class="tag">Official Invitation — CS.Sammilani.2026</div>
+    <h1>Dear ${name},</h1>
+    <p>It gives us <b>immense pleasure</b> to welcome you to the Department of B.Sc. Computer Science, Sammilani Mahavidyalaya.</p>
+    <p>You are cordially invited to the <b>Freshers' Welcome Ceremony</b> on <b>25 July 2026</b>.</p>
+    <p>May this new journey be filled with knowledge, friendship, creativity and success.</p>
+    <p>See you soon!</p>
+    <div class="sign">— Department of B.Sc. Computer Science<br><b>Sammilani Mahavidyalaya</b></div>
+  </div>
+</body></html>`;
+    const blob = new Blob([html], {type:'text/html'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Invitation-${name.replace(/\s+/g,'_')}.html`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+})();
+
+/* =====================================================================
+   9. LIVE COUNTDOWN TIMER → 25 July 2026, 10:00 AM IST
+   ===================================================================== */
+(function(){
+  const target = new Date('2026-07-25T10:00:00+05:30').getTime();
+  const dEl = document.getElementById('cdDays');
+  const hEl = document.getElementById('cdHours');
+  const mEl = document.getElementById('cdMins');
+  const sEl = document.getElementById('cdSecs');
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function tick(){
+    const now = Date.now();
+    let diff = target - now;
+    if(diff <= 0){
+      dEl.textContent='00'; hEl.textContent='00'; mEl.textContent='00'; sEl.textContent='00';
+      return;
+    }
+    const days = Math.floor(diff/(1000*60*60*24));
+    const hours = Math.floor((diff/(1000*60*60))%24);
+    const mins = Math.floor((diff/(1000*60))%60);
+    const secs = Math.floor((diff/1000)%60);
+    dEl.textContent = pad(days); hEl.textContent = pad(hours);
+    mEl.textContent = pad(mins); sEl.textContent = pad(secs);
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+/* =====================================================================
+   10. AMBIENT MUSIC TOGGLE (Web Audio API — no external file needed)
+   Default: OFF
+   ===================================================================== */
+(function(){
+  const btn = document.getElementById('music-toggle');
+  let ctx, osc1, osc2, gain, playing = false;
+
+  function startAmbient(){
+    ctx = new (window.AudioContext || window.webkitAudioContext)();
+    gain = ctx.createGain();
+    gain.gain.value = 0;
+    gain.connect(ctx.destination);
+
+    osc1 = ctx.createOscillator();
+    osc1.type = 'sine';
+    osc1.frequency.value = 110; // low ambient tone
+    osc2 = ctx.createOscillator();
+    osc2.type = 'sine';
+    osc2.frequency.value = 164.81; // fifth interval for warmth
+
+    const lfo = ctx.createOscillator();
+    lfo.frequency.value = 0.08;
+    const lfoGain = ctx.createGain();
+    lfoGain.gain.value = 0.015;
+    lfo.connect(lfoGain);
+    lfoGain.connect(gain.gain);
+
+    osc1.connect(gain); osc2.connect(gain);
+    osc1.start(); osc2.start(); lfo.start();
+
+    gain.gain.linearRampToValueAtTime(0.05, ctx.currentTime + 1.2);
+  }
+  function stopAmbient(){
+    if(!ctx) return;
+    gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.6);
+    setTimeout(()=>{ ctx && ctx.close(); ctx = null; }, 700);
+  }
+
+  btn.addEventListener('click', ()=>{
+    playing = !playing;
+    btn.classList.toggle('on', playing);
+    btn.textContent = playing ? '🔊' : '🔇';
+    if(playing) startAmbient(); else stopAmbient();
+  });
+})();
+
+/* =====================================================================
+   11. "OPEN INVITATION" BUTTON RIPPLE FEEL (smooth scroll already via href)
+   ===================================================================== */
+document.getElementById('openInviteBtn').addEventListener('click', function(e){
+  e.preventDefault();
+  document.getElementById('page2').scrollIntoView({behavior:'smooth'});
+});
+</script>
+</body>
+</html>
